@@ -1,4 +1,29 @@
+import React, { useState } from 'react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 const AddPostModal = ({handleCloseEvent}) => {
+
+    const [title, setTitle] = useState("")
+    const [category, setCategory] = useState("")
+    const [editorContent, setEditorContent] = useState("")
+    const [featuredImage, setFeaturedImage] = useState(null)
+    const [status, setStatus] = useState("")
+
+    // Handle Form Submit
+    const handleFormSubmitData = (event) => {
+      event.preventDefault();
+
+      const postData = {
+        title,
+        content: editorContent,
+        categories: [category],
+        featured_media: featuredImage,
+        status
+      }
+      console.log(postData);
+      
+    }
 
     return <>
         <div className="modal" id="addPostModal">
@@ -6,21 +31,23 @@ const AddPostModal = ({handleCloseEvent}) => {
             <div className="bg-white p-6 rounded-lg shadow-lg w-1/2 relative">
               <div className="loader"></div> 
               <h2 className="text-2xl mb-4">Add New Post</h2>
-              <form>
+              <form onSubmit={ handleFormSubmitData }>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="mb-4">
                     <label className="block text-sm font-medium mb-2">Title</label>
                     <input
                       type="text"
                       className="border border-gray-300 rounded w-full p-2"
-                      value=""
+                      value={title}
+                      onChange={(e) => setTitle(e.target.value)
+                      }
                       required
                     />
                   </div>
         
                   <div className="mb-4">
                     <label className="block text-sm font-medium mb-2">Category</label>
-                    <select
+                    <select value={category} onChange={(e) => setCategory(e.target.value)}
                       className="border border-gray-300 rounded w-full p-2"
                       required
                     >
@@ -32,13 +59,15 @@ const AddPostModal = ({handleCloseEvent}) => {
         
                   <div className="mb-4 col-span-2">
                     <label className="block text-sm font-medium mb-2">Content</label>
-                    <textarea className="border border-gray-300 rounded w-full p-2" rows="6" required></textarea>
+                    <CKEditor editor={ClassicEditor} data={editorContent} onChange={ (e, editor) => {
+                      const editorData = editor.getData()
+                      setEditorContent(editorData)
+                    }} />
                   </div>
         
                   <div className="mb-4">
                     <label className="block text-sm font-medium mb-2">Featured Image</label>
-                    <input
-                      type="file"
+                    <input type="file"  onChange={ (e) => setFeaturedImage(e.target.files[0])}
                     />
                   </div>
         
@@ -47,6 +76,8 @@ const AddPostModal = ({handleCloseEvent}) => {
                     <select
                       className="border border-gray-300 rounded w-full p-2"
                       required
+                      value={status}
+                      onChange={ (e) => setStatus(e.target.value)}
                     >
                       <option value="">- Select -</option>
                       <option value="publish">Publish</option>
