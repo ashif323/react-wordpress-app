@@ -1,16 +1,61 @@
-# React + Vite
+# React WordPress App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **React + WordPress integration** that connects a React frontend with a WordPress backend using the **WordPress REST API** and **JWT Authentication** for secure CRUD operations.  
+It provides full post management functionality—creating, editing, deleting, and viewing posts along with image uploads.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- Add, edit, and delete WordPress posts directly from React
+- Upload and set featured images using the REST API
+- Manage categories with real-time data loading
+- Full content editing via **CKEditor 5**
+- JWT Token Authentication for secure endpoints
+- Loader and dynamic updates for smooth UX
+- Custom WordPress backend filter to **accept all image types (WebP, HEIC, SVG, etc.)**
+- Uses Vite for lightning-fast development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧩 Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Tool            | Purpose                          |
+|-----------------|----------------------------------|
+| **React 18**    | Frontend framework               |
+| **WordPress**   | Backend CMS / REST API provider  |
+| **CKEditor 5**  | Rich text editor for posts       |
+| **Vite**        | Development and build tool       |
+| **Tailwind CSS** | Utility-first CSS styling        |
+| **JWT Auth** | Secure authentication plugin for WP |
+
+---
+
+## 📦 Project Structure
+<img width="643" height="865" alt="image" src="https://github.com/user-attachments/assets/019d540d-051d-478b-973c-a427586896b7" />
+
+---
+
+## ⚙️ Setup Guide
+
+### **1. Requirements**
+- Node.js 16+
+- WordPress 6.0+ (with REST API enabled)
+- Installed JWT Auth Plugin:
+  [JWT Authentication for WP REST API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/)
+- WordPress running locally at:
+
+
+---
+
+### **2. Installation Steps**
+
+**Clone the repository**
+
+
+**Install dependencies**
+
+
+**Run the app locally**
+
+
